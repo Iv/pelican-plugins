@@ -192,6 +192,8 @@ Pelican Page Order        Adds a ``page_order`` attribute to all pages if one is
 
 Pelican Themes Generator  Generates theme screenshots from the Pelican Themes repository
 
+pelican-rdf                Allows the processing of .rdf vocabularies, and the generation of a lightweight documentation.
+
 pelican-toc               Generates a Table of Contents and make it available to the theme via article.toc
 
 Pelican Vimeo             Enables you to embed Vimeo videos in your pages and articles
@@ -261,6 +263,8 @@ Touch                     Does a touch on your generated files using the date me
 Twitter Bootstrap         Defines some rst directive that enable a clean usage of the twitter bootstrap CSS and Javascript components
 
 txt2tags_reader           Reader that renders txt2tags markup in content
+
+Unity WebGL               Easily embed Unity3d games into posts and pages
 
 Video Privacy Enhancer    Increases user privacy by stopping YouTube, Google, et al from placing cookies via embedded video
 
