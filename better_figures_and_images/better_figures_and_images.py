@@ -52,6 +52,7 @@ def content_object_init(instance):
 
             # Pelican 3.5+ supports {attach} macro for auto copy, in this use case the content does not exist in output
             # due to the fact it has not been copied, hence we take it from the source (same as current document)
+            src = None
             if img_filename.startswith('{attach}'):
                 img_path = os.path.dirname(instance.source_path)
                 img_filename = img_filename[8:]
@@ -59,6 +60,8 @@ def content_object_init(instance):
             elif img_path.startswith(('{filename}', '|filename|')):
                 # Strip off {filename}, |filename| or /static
                 img_path = img_path[10:]
+            elif img_path.startswith('{static}'):
+                img_path = img_path[8:]
             elif img_path.startswith('/static'):
                 img_path = img_path[7:]
             elif img_path.startswith('data:image'):
@@ -72,7 +75,7 @@ def content_object_init(instance):
                     src = image_output_location
                     logger.info('{src} located in output, missing from content.'.format(src=img_filename))
                 else:
-                    logger.warning('Better Fig. Error: img_path should start with either {attach}, {filename}, |filename| or /static')
+                    logger.warning('Better Fig. Error: img_path should start with either {attach}, {filename}, |filename|, {static} or /static')
 
             if src is None:
                 # search src path list
